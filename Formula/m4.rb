@@ -29,6 +29,12 @@ class M4 < Formula
       sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
     end
   end
+  
+  # Apply fix for https://askubuntu.com/a/1112101  
+  patch do
+    url "https://git.openembedded.org/openembedded-core/plain/meta/recipes-devtools/m4/m4/m4-1.4.18-glibc-change-work-around.patch"
+    sha256 "9e8fc660515be565f26194d3d6124a9483dc15a66ee8ea3f0b409c02d60a62f5"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
